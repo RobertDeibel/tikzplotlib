@@ -78,7 +78,9 @@ def draw_legend(data, obj):
     if alignment:
         data["current axes"].axis_options.append(f"legend cell align={{{alignment}}}")
 
-    if obj._ncol != 1:
+    # if _ncol not present API is more current, contains _ncols
+    ncols = getattr(obj, "_ncol", obj._ncols)
+    if ncols != 1:
         data["current axes"].axis_options.append(f"legend columns={obj._ncol}")
 
     # Write styles to data
