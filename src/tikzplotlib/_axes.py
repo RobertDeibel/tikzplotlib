@@ -6,7 +6,7 @@ try:
     )
 except ImportError:
     from matplotlib.backends.backend_pgf import (
-        _tex_excape as mpl_common_texification,
+        _tex_escape as mpl_common_texification,
     )
 
 from . import _color
